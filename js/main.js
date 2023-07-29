@@ -71,6 +71,12 @@ class Libro {
     </div>
     <div class="gradiente-blanco"></div>`;
   }
+
+  delHtmlArticle(id) {
+    let articleDel = document.getElementById(id);
+    articleDel.remove();
+  }
+
 }
 
 /* 9 - 1: Instancia objeto de prueba */
@@ -99,7 +105,8 @@ Si esto funciona adecuadamente en el browser deberían ahora figurar otro libro 
 
 libro1.getHtmlArticle("article");
 
-
+/* se genera un método más para desagregar el contenido de prueba*/
+libro1.delHtmlArticle('article');
 
 
 /*
