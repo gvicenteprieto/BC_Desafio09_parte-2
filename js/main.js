@@ -35,6 +35,42 @@ class Libro {
       console.log(`${this.titulo}, de ${this.autor}`);
     }
   }
+  /* 10 - Se crea el método getHtmlArticle() */
+  getHtmlArticle(string = ["article"]) {
+    let article = document.createElement(string);
+    article.id = 'article';
+    let section = document.querySelector("section");
+    section.appendChild(article);
+
+    article.innerHTML = `<h2>${this.titulo}</h2>
+    <h3><span class="de">de</span> ${this.autor}</h3>
+    <div class="informacion">
+        <a href="img/${this.foto}" 
+            title="Presioná para ver la imagen en tamaño grande" target="_blank">
+            <img src="img/${this.foto}" alt="Portada de Sol de medianoche"/>
+        </a>
+        <p>
+            <span>Precio:</span>
+            <span>${this.precio}</span>
+        </p>
+            <p>
+        <span title="International Standard Book Number">ISBN:</span>
+            <span>${this.isbn}</span>
+        </p>
+        <p>
+            <span>Páginas:</span>
+            <span>${this.paginas}</span>
+        </p>
+        <p>
+            <span>Idioma:</span>
+            <span>${this.idioma}</span>
+        </p>
+    </div>
+    <div class="sinopsis">
+        <p>${this.sinopsis}</p>
+    </div>
+    <div class="gradiente-blanco"></div>`;
+  }
 }
 
 /* 9 - 1: Instancia objeto de prueba */
@@ -52,10 +88,19 @@ let libro1 = new Libro(
 /* 9 - 2 Visualización de datos objeto de prueba 
       Descomentar para observar*/
   
-libro1.mostrarDatosEnConsola();
-libro1.mostrarDatosEnAlert();
-console.log("El título del libro del objeto de prueba es: " + libro1.getTitulo());
-console.log(`El libro, de ${libro1.autor}, tiene ${libro1.paginas} páginas. Está en idioma ${libro1.idioma} y su ISBN es ${libro1.isbn}.`);
+// libro1.mostrarDatosEnConsola();
+// libro1.mostrarDatosEnAlert();
+// console.log("El título del libro del objeto de prueba es: " + libro1.getTitulo());
+// console.log(`El libro, de ${libro1.autor}, tiene ${libro1.paginas} páginas. Está en idioma ${libro1.idioma} y su ISBN es ${libro1.isbn}.`);
+
+
+/* 11 - De forma dinámica, agregar al contenido generado por getHtmlArticle() del objeto libro1 creado en el punto 9.
+Si esto funciona adecuadamente en el browser deberían ahora figurar otro libro después de los dos ya existentes en el código HTML original.*/
+
+libro1.getHtmlArticle("article");
+
+
+
 
 /*
 Sol de medianoche
