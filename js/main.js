@@ -165,3 +165,12 @@ let section = document.querySelector("section");
 section.appendChild(elemLibrosContainer);
 elemLibrosContainer.innerHTML += htmlNuevosLibros;
 
+
+/* 14 - Se eliminan todos los <article> que están de prueba en el <section> */
+
+let elemArticles = document.querySelectorAll("article");
+for (let i = 0; i < elemArticles.length; i++) {
+    if (elemArticles[i].id !== "article") {
+        elemArticles[i].remove();
+    }
+}
