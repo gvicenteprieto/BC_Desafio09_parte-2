@@ -71,7 +71,7 @@ class Libro {
     </div>
     <div class="gradiente-blanco"></div>`;
   }
-
+  /* método más para desagregar el contenido deL objeto prueba */
   delHtmlArticle(id) {
     let articleDel = document.getElementById(id);
     articleDel.remove();
@@ -90,15 +90,12 @@ let libro1 = new Libro(
   "El legendario debut de Stephen King, sobre una marginada adolescente y la venganza que ejerce sobre sus compañeros de clase."
 );
 
-/* 9 - 2 Visualización de datos objeto de prueba  - Descomentar para observar*/
+/* 9 - 2 Visualización de datos objeto de prueba  - Descomentar para observar */
 
-// libro1.mostrarDatosEnConsola();
-// libro1.mostrarDatosEnAlert();
-// console.log("El título del libro del objeto de prueba es: " + libro1.getTitulo());
-// console.log(`El libro, de ${libro1.autor}, tiene ${libro1.paginas} páginas. Está en idioma ${libro1.idioma} y su ISBN es ${libro1.isbn}.`);
+//libro1.mostrarDatosEnConsola();
 
-/* 11 - De forma dinámica, agregar al contenido generado por getHtmlArticle() del objeto libro1 creado en el punto 9.
-Si esto funciona adecuadamente en el browser deberían ahora figurar otro libro después de los dos ya existentes en el código HTML original.*/
+
+/* 11 - De forma dinámica, se agrega el contenido generado por getHtmlArticle() del objeto libro1 creado en el punto 9. */
 
 libro1.getHtmlArticle("article");
 
@@ -151,7 +148,8 @@ let libro4 = new Libro(
 );
 
 
-/* 13 - Se muestran todos los libros (existentes en el HTML + los generados de forma dinámica) con el código sugerido. Se ha desagregado previamente el contenido del objeto pruebas del html */
+/* 13 - Se muestran todos los libros con el código sugerido. 
+Se ha desagregado previamente el contenido del objeto pruebas del html */
 
 let htmlNuevosLibros =
   libro1.getHtmlArticle() +
