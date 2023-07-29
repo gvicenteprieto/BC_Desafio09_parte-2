@@ -150,3 +150,18 @@ let libro4 = new Libro(
   "677978.jpg",
   "Maru cocina junto a sus hijos y amigos sus mejores recetas del día a día. Este manual con recetario ayudará a los jóvenes, a los recién mudados y a todo aquel que se inicia en la cocina a preparar los platos más deliciosos: bebidas, entradas, principales, panes, postres y tortas. Todo con los eximios sabores y la simplicidad de Maru Botana."
 );
+
+
+/* 13 - Se muestran todos los libros (existentes en el HTML + los generados de forma dinámica) con el código sugerido. Se ha desagregado previamente el contenido del objeto pruebas del html */
+
+let htmlNuevosLibros =
+  libro1.getHtmlArticle() +
+  libro2.getHtmlArticle() +
+  libro3.getHtmlArticle() +
+  libro4.getHtmlArticle();
+
+let elemLibrosContainer = document.createElement("div");
+let section = document.querySelector("section");
+section.appendChild(elemLibrosContainer);
+elemLibrosContainer.innerHTML += htmlNuevosLibros;
+
