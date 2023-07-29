@@ -1,3 +1,42 @@
+class Libro {
+    /* 7 - Se reciben los nuevos parámetros 
+       8 - Se asignan los nuevos parámetros a las propiedades del objeto  */
+    constructor(titulo, autor, precio, isbn, paginas, idioma, foto, sinopsis) {
+      this.titulo = titulo;
+      this.autor = autor;
+      this.precio = precio;
+      this.isbn = isbn;
+      this.paginas = paginas;
+      this.idioma = idioma;
+      this.foto = foto;
+      this.sinopsis = sinopsis;
+    }
+    mostrarDatosEnConsola() {
+      console.log(`${this.titulo}, 
+          de ${this.autor}, 
+          precio: ${this.precio},
+          isbn: ${this.isbn}, 
+          páginas: ${this.paginas}, 
+          idioma: ${this.idioma}, 
+          foto: ${this.foto}, 
+          sinopsis: ${this.sinopsis}`);
+    }
+    mostrarDatosEnAlert() {
+      alert(`${this.titulo}, de ${this.autor}`);
+    }
+    getTitulo() {
+      return this.titulo;
+    }
+  
+    mostrarDatos(param) {
+      if (param === "alert") {
+        alert(`${this.titulo}, de ${this.autor}`);
+      } else if (param === "consola" || param !== "alert") {
+        console.log(`${this.titulo}, de ${this.autor}`);
+      }
+    }
+  }
+
 /*
 Sol de medianoche
 Stephenie Meyer
