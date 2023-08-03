@@ -1,4 +1,4 @@
-'strict mode'
+"strict mode";
 class Libro {
   /* 7 - Se reciben los nuevos parámetros 
     8 - Se asignan los nuevos parámetros a las propiedades del objeto  */
@@ -12,27 +12,29 @@ class Libro {
     this.foto = foto;
     this.sinopsis = sinopsis;
   }
+  datosAMostrar() {
+    return `${this.titulo}, de ${this.autor.toUpperCase()},
+        precio: ${this.precio},
+        isbn: ${this.isbn}, 
+        páginas: ${this.paginas}, 
+        idioma: ${this.idioma}, 
+        foto: ${this.foto}, 
+        sinopsis: ${this.sinopsis}`;
+  }
   mostrarDatosEnConsola() {
-    console.log(`${this.titulo}, 
-          de ${this.autor}, 
-          precio: ${this.precio},
-          isbn: ${this.isbn}, 
-          páginas: ${this.paginas}, 
-          idioma: ${this.idioma}, 
-          foto: ${this.foto}, 
-          sinopsis: ${this.sinopsis}`);
+    console.log(this.datosAMostrar());
   }
   mostrarDatosEnAlert() {
-    alert(`${this.titulo}, de ${this.autor}`);
+    alert(this.datosAMostrar());
   }
   getTitulo() {
     return this.titulo;
   }
   mostrarDatos(param) {
     if (param === "alert") {
-      alert(`${this.titulo}, de ${this.autor}`);
+      this.mostrarDatosEnAlert();
     } else if (param === "consola" || param !== "alert") {
-      console.log(`${this.titulo}, de ${this.autor}`);
+      this.mostrarDatosEnConsola();
     }
   }
   /* 10 - Se crea el método getHtmlArticle() */
@@ -47,7 +49,7 @@ class Libro {
     <div class="informacion">
         <a href="img/${this.foto}" 
             title="Presioná para ver la imagen en tamaño grande" target="_blank">
-            <img src="img/${this.foto}" alt="Portada de Sol de medianoche"/>
+            <img src="img/${this.foto}" alt="${this.titulo}"/>
         </a>
         <p>
             <span>Precio:</span>
@@ -71,13 +73,14 @@ class Libro {
     </div>
     <div class="gradiente-blanco"></div>`;
   }
-  /* método más para desagregar el contenido deL objeto prueba */
+  /* método más para desagregar el contenido deL objeto prueba 
+    se realiza ya que el objeto de prueba recibe el nombre de Libro1
+    y luego se pide nombrar con el mismo nombre (Libro1) al primer objeto*/
   delHtmlArticle(id) {
     let articleDel = document.getElementById(id);
     articleDel.remove();
   }
 }
-
 /* 9 - 1: Instancia objeto de prueba */
 let libro1 = new Libro(
   "Carrie",
@@ -92,11 +95,16 @@ let libro1 = new Libro(
 
 /* 9 - 2 Visualización de datos objeto de prueba  - Descomentar para observar */
 
-//libro1.mostrarDatosEnConsola();
+// libro1.mostrarDatosEnConsola();
+// libro1.mostrarDatosEnAlert();
+// libro1.mostrarDatos('alert');
+// libro1.mostrarDatos('consola');
+// libro1.mostrarDatos();
 
 
-/* 11 - De forma dinámica, se agrega el contenido generado por getHtmlArticle() del objeto libro1 creado en el punto 9. */
-
+/* 11 - De forma dinámica, 
+se agrega el contenido generado por getHtmlArticle() 
+del objeto libro1 creado en el punto 9. */
 libro1.getHtmlArticle("article");
 
 /* se genera un método más para desagregar el contenido de prueba*/
@@ -147,10 +155,8 @@ let libro4 = new Libro(
   "Maru cocina junto a sus hijos y amigos sus mejores recetas del día a día. Este manual con recetario ayudará a los jóvenes, a los recién mudados y a todo aquel que se inicia en la cocina a preparar los platos más deliciosos: bebidas, entradas, principales, panes, postres y tortas. Todo con los eximios sabores y la simplicidad de Maru Botana."
 );
 
-
 /* 13 - Se muestran todos los libros con el código sugerido. 
 Se ha desagregado previamente el contenido del objeto pruebas del html */
-
 let htmlNuevosLibros =
   libro1.getHtmlArticle() +
   libro2.getHtmlArticle() +
@@ -163,10 +169,9 @@ section.appendChild(elemLibrosContainer);
 elemLibrosContainer.innerHTML += htmlNuevosLibros;
 
 /* 14 - Se eliminan todos los <article> que están de prueba en el <section> */
-
 let elemArticles = document.querySelectorAll("article");
 for (let i = 0; i < elemArticles.length; i++) {
-    if (elemArticles[i].id !== "article") {
-        elemArticles[i].remove();
-    }
+  if (elemArticles[i].id !== "article") {
+    elemArticles[i].remove();
+  }
 }
